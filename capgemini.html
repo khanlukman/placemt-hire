@@ -11,8 +11,9 @@
   --primary: #1e90ff;
   --bg-dark: #0f172a;
   --bg-light: #1e293b;
-  --card-bg: #111827;
+  --card-bg: #ffffff; /* White box */
   --text-light: #fff;
+  --text-dark: #111; /* Black text */
 }
 
 /* Reset */
@@ -106,43 +107,46 @@ main h1 {
   gap: 1.8rem;
   align-items: center;
   margin-top: 2rem;
+  width: 100%;
 }
 
 /* Stage Box */
 .stage {
   width: 320px;
+  max-width: 90%;
   padding: 1.4rem 1.6rem;
   border-radius: 16px;
-  background: var(--card-bg);
-  border: 2px solid rgba(255,255,255,0.08);
+  background: var(--card-bg); /* white */
+  border: 2px solid rgba(0,0,0,0.08);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 600;
   font-size: 1.35rem;
-  color: var(--text-light);
-  box-shadow: 0 0 0 transparent;
+  color: var(--text-dark); /* black */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   transition: transform 0.3s ease, box-shadow 0.4s ease, border 0.4s ease;
   cursor: pointer;
+  text-align: center;
 }
 
-/* Hover = outside glow only */
+/* Hover glow */
 .stage:hover {
   transform: translateY(-6px);
   border: 2px solid var(--primary);
-  box-shadow: 0 0 25px rgba(30,144,255,0.7), 0 0 45px rgba(30,144,255,0.4);
+  box-shadow: 0 0 25px rgba(30,144,255,0.6), 0 0 45px rgba(30,144,255,0.3);
 }
 
-/* Active = stronger outer glow */
+/* Active glow */
 .stage.active {
   border: 2px solid var(--primary);
-  box-shadow: 0 0 30px rgba(30,144,255,0.9), 0 0 60px rgba(30,144,255,0.5);
+  box-shadow: 0 0 30px rgba(30,144,255,0.8), 0 0 60px rgba(30,144,255,0.4);
 }
 
 /* Responsive */
 @media(max-width:992px){
   main h1 { font-size:2rem; }
-  .stage { width:280px; font-size:1.25rem; padding:1.3rem; }
+  .stage { font-size:1.2rem; padding:1.3rem; width:80%; }
 }
 
 @media(max-width:768px){
@@ -158,11 +162,11 @@ main h1 {
 
 @media(max-width:480px){
   main h1 { font-size:1.5rem; }
-  .stage { width:90%; font-size:1rem; padding:1rem; }
+  .stage { font-size:1rem; padding:1.1rem; width:100%; }
 }
 
 @media(max-width:360px){
-  .stage { width:100%; font-size:0.95rem; padding:0.9rem; }
+  .stage { font-size:0.95rem; padding:0.9rem; width:100%; }
 }
 </style>
 </head>
@@ -184,11 +188,11 @@ main h1 {
 <main>
   <h1>Capgemini Hiring Process on Campus</h1>
   <div class="stage-list">
-    <div class="stage">Communication</div>
-    <div class="stage">Technical</div>
-    <div class="stage">Coding</div>
-    <div class="stage">Game Based</div>
-    <div class="stage">Interview</div>
+    <div class="stage">🗣️ Communication</div>
+    <div class="stage">💻 Technical</div>
+    <div class="stage">👨‍💻 Coding</div>
+    <div class="stage">🎮 Game Based</div>
+    <div class="stage">🗣️ Interview</div>
   </div>
 </main>
 
@@ -200,13 +204,13 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let particlesArray = [];
-const numberOfParticles = 70;
+let numberOfParticles = getParticleCount();
 
 class Particle {
   constructor(x, y) {
     this.x = x;
     this.y = y;
-    this.size = 2;
+    this.size = (window.innerWidth < 480) ? 1.5 : 2;
     this.speedX = (Math.random() - 0.5) * 1;
     this.speedY = (Math.random() - 0.5) * 1;
   }
@@ -224,8 +228,15 @@ class Particle {
   }
 }
 
+function getParticleCount() {
+  if (window.innerWidth < 480) return 30;
+  if (window.innerWidth < 768) return 50;
+  return 70;
+}
+
 function init() {
   particlesArray = [];
+  numberOfParticles = getParticleCount();
   for (let i = 0; i < numberOfParticles; i++) {
     let x = Math.random() * canvas.width;
     let y = Math.random() * canvas.height;
@@ -234,13 +245,14 @@ function init() {
 }
 
 function connect() {
+  let maxDist = (window.innerWidth < 480) ? 90 : 140;
   for (let a = 0; a < particlesArray.length; a++) {
     for (let b = a; b < particlesArray.length; b++) {
       let dx = particlesArray[a].x - particlesArray[b].x;
       let dy = particlesArray[a].y - particlesArray[b].y;
       let distance = Math.sqrt(dx * dx + dy * dy);
-      if (distance < 140) {
-        let opacity = 1 - distance / 140;
+      if (distance < maxDist) {
+        let opacity = 1 - distance / maxDist;
         ctx.strokeStyle = `rgba(30,144,255,${opacity})`;
         ctx.lineWidth = 1;
         ctx.beginPath();
