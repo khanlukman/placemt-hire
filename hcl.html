@@ -11,10 +11,10 @@
   --primary: #1e90ff;
   --bg-dark: #0f172a;
   --bg-light: #1e293b;
-  --card-bg: #111827;
   --text-light: #fff;
 }
 
+/* Reset */
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Roboto',sans-serif; }
 
 /* Body */
@@ -113,17 +113,18 @@ main h1 {
   width: 320px;
   padding: 1.4rem 1.6rem;
   border-radius: 16px;
-  background: var(--card-bg);
-  border: 2px solid rgba(255,255,255,0.08);
+  background: #ffffff; /* white card */
+  border: 2px solid rgba(0,0,0,0.08);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 600;
   font-size: 1.35rem;
-  color: var(--text-light);
-  box-shadow: 0 0 0 transparent;
+  color: #000000; /* black text */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   transition: transform 0.3s ease, box-shadow 0.4s ease, border 0.4s ease;
   cursor: pointer;
+  text-align: center;
 }
 
 /* Hover = outside glow only */
@@ -185,7 +186,7 @@ main h1 {
 
 <!-- Main -->
 <main>
-  <h1>HCL Hiring Process on Campus </h1>
+  <h1>HCL Hiring Process on Campus</h1>
   <div class="stage-list">
     <div class="stage">Aptitude Round</div>
     <div class="stage">Computer Programming</div>
