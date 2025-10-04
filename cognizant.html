@@ -11,7 +11,8 @@
   --primary: #1e90ff;
   --bg-dark: #0f172a;
   --bg-light: #1e293b;
-  --card-bg: #111827;
+  --card-bg: #ffffff;  /* White background for boxes */
+  --text-dark: #000;   /* Black text inside */
   --text-light: #fff;
 }
 
@@ -114,15 +115,14 @@ main h1 {
   width: 320px;
   padding: 1.4rem 1.6rem;
   border-radius: 16px;
-  background: var(--card-bg);
-  border: 2px solid rgba(255,255,255,0.08);
+  background: var(--card-bg);  /* white */
+  border: 2px solid rgba(0,0,0,0.1);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 600;
   font-size: 1.35rem;
-  color: var(--text-light);
-  box-shadow: 0 0 0 transparent;
+  color: var(--text-dark);  /* black */
   transition: transform 0.3s ease, box-shadow 0.4s ease, border 0.4s ease;
   cursor: pointer;
 }
