@@ -11,7 +11,6 @@
   --primary: #1e90ff;
   --bg-dark: #0f172a;
   --bg-light: #1e293b;
-  --card-bg: #111827;
   --text-light: #fff;
 }
 
@@ -110,17 +109,18 @@ main h1 {
   width: 340px;
   padding: 1.5rem;
   border-radius: 14px;
-  background: var(--card-bg);
+  background: #ffffff; /* white card */
   border: 2px solid transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
   font-size: 1.4rem;
-  color: var(--text-light);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  color: #000000; /* black text */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
   cursor: pointer;
+  text-align: center;
 }
 
 .stage:hover {
