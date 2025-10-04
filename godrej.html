@@ -11,10 +11,10 @@
   --primary: #1e90ff;
   --bg-dark: #0f172a;
   --bg-light: #1e293b;
-  --card-bg: #111827;
   --text-light: #fff;
 }
 
+/* Reset */
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Roboto',sans-serif; }
 
 /* Body */
@@ -105,19 +105,20 @@ main h1 {
   margin-top: 2rem;
 }
 
+/* Stage Box */
 .stage {
   width: 340px;
   padding: 1.5rem;
   border-radius: 14px;
-  background: var(--card-bg);
+  background: #ffffff;
   border: 2px solid transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
   font-size: 1.4rem;
-  color: var(--text-light);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  color: #000000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
   cursor: pointer;
 }
@@ -168,6 +169,7 @@ main h1 {
 
 <canvas id="particles"></canvas>
 
+<!-- Navbar -->
 <nav>
   <div class="logo">🎓 Campus Hire</div>
   <ul>
@@ -177,6 +179,7 @@ main h1 {
   </ul>
 </nav>
 
+<!-- Main -->
 <main>
   <h1>Godrej Hiring Process on Campus</h1>
   <div class="stage-list">
