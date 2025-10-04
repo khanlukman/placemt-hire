@@ -11,7 +11,8 @@
   --primary: #1e90ff;
   --bg-dark: #0f172a;
   --bg-light: #1e293b;
-  --card-bg: #111827;
+  --card-bg: #ffffff;   /* white boxes */
+  --text-dark: #000;    /* black text */
   --text-light: #fff;
 }
 
@@ -113,27 +114,26 @@ main h1 {
   width: 320px;
   padding: 1.4rem 1.6rem;
   border-radius: 16px;
-  background: var(--card-bg);
-  border: 2px solid rgba(255,255,255,0.08);
+  background: var(--card-bg);   /* white background */
+  border: 2px solid rgba(0,0,0,0.1);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 600;
   font-size: 1.35rem;
-  color: var(--text-light);
-  box-shadow: 0 0 0 transparent;
+  color: var(--text-dark);      /* black text */
   transition: transform 0.3s ease, box-shadow 0.4s ease, border 0.4s ease;
   cursor: pointer;
 }
 
-/* Hover = outside glow only */
+/* Hover = outside glow */
 .stage:hover {
   transform: translateY(-6px);
   border: 2px solid var(--primary);
   box-shadow: 0 0 25px rgba(30,144,255,0.7), 0 0 45px rgba(30,144,255,0.4);
 }
 
-/* Active = stronger outer glow */
+/* Active = stronger glow */
 .stage.active {
   border: 2px solid var(--primary);
   box-shadow: 0 0 30px rgba(30,144,255,0.9), 0 0 60px rgba(30,144,255,0.5);
@@ -147,7 +147,7 @@ main h1 {
 }
 
 @media(max-width:480px){
-  .stage { width:210px; font-size:1rem; padding:1rem; }
+  .stage { width:90%; font-size:1rem; padding:1rem; }
 }
 </style>
 </head>
@@ -171,10 +171,9 @@ main h1 {
   <div class="stage-list">
     <div class="stage">Online Assessment</div>
     <div class="stage">Quants and Logical</div>
-    <div class="stage">English Round </div>
+    <div class="stage">English Round</div>
     <div class="stage">Computer Fundamentals</div>
     <div class="stage">Interview Round</div>
-   
   </div>
 </main>
 
